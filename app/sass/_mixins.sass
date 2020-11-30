@@ -1,0 +1,139 @@
+// * Stop Scroll 
+@mixin stop-scroll
+	position: fixed
+	left: 0
+	top: 0
+	overflow: hidden
+	width: 100%
+	height: 100vh
+
+// -------------------------------------------------------------------
+
+// * Flex center  
+@mixin flex-center()
+  display: flex
+  align-items: center
+  justify-content: center
+
+// -------------------------------------------------------------------
+
+// * Pseudo element
+@mixin pseudo($display: block, $position: absolute, $content: '')
+  content: $content
+  display: $display
+  position: $position
+
+// ! Esample: @include pseudo(inline-block, relative, 'next')
+
+// -------------------------------------------------------------------
+
+@mixin boxshadow($top, $left, $blur, $size, $color, $inset: false)
+  @if $inset
+    -webkit-box-shadow: inset $top $left $blur $size $color
+    -moz-box-shadow: inset $top $left $blur $size $color
+    box-shadow: inset $top $left $blur $size $color
+  @else
+    -webkit-box-shadow: $top $left $blur $size $color
+    -moz-box-shadow: $top $left $blur $size $color
+    box-shadow: $top $left $blur $size $color
+
+// ! Exsample: @include boxshadow(1px, 1px, 3px, 0, $black, inset);
+// ! Exsample: @include boxshadow(1px, 1px, 3px, 0, $black);
+
+// -------------------------------------------------------------------
+
+// * Gradient
+@mixin linear-gradient($top-color, $bottom-color, $opacity)
+  background: linear-gradient(to left, rgba($top-color, $opacity) 0%, rgba($bottom-color, $opacity) 100%)
+
+// ! Exsample: @include linear-gradient(black, white, .8)
+
+// -------------------------------------------------------------------
+
+// * Clearfix
+@mixin clearfix() 
+  &:before, &:after 
+    content: ''
+    display: table
+    clear: both
+
+// -------------------------------------------------------------------
+
+// * Min Max
+@mixin min-max($min-width, $max-width, $padding)
+  min-width: $min-width
+  max-width: $max-width
+  padding: 0 $padding
+  box-sizing: border-box
+  margin: 0 auto
+
+// -------------------------------------------------------------------
+
+// * Responsive Video  
+@mixin adaptive-video() 
+  position: relative
+  padding-bottom: 56.25% /* nastavi vysku kontejneru na 16:9 (pokud 4:3 — dat 75%) */
+  height: 0
+  overflow: hidden
+  iframe 
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+// -------------------------------------------------------------------
+
+// * Pixel to Rem 
+@function px-to-rem($size, $basicSize: 16px)
+  @return $size / $basicSize#{rem}
+
+// -------------------------------------------------------------------
+
+// * Visually Hidden
+@mixin visually-hidden() 
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  border: 0
+  padding: 0
+  white-space: nowrap
+  clip-path: inset(100%)
+  clip: rect(0,0,0,0)
+  overflow: hidden
+
+// -------------------------------------------------------------------
+
+// * Button  
+@mixin link-button($btnWidth: 170px ,$bg: $white, $textColor: $black, $borderColor: transparent) 
+  border-radius: 5px
+  background-color: $bg
+  border: 1px solid $borderColor
+  width: $btnWidth
+  font-size: px-to-rem(12px)
+  font-family: $primary-font
+  color: $textColor
+  letter-spacing: 1px
+  text-transform: uppercase
+  text-align: center
+  text-decoration: none
+  padding: 15px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  box-shadow: -1px -1px 1px rgba($white,.1), 1px 1px 1px rgba($black,.5)
+  appearance: none
+  transition-property: background-color, border-color, text-color
+  transition-duration: 500ms
+  @content
+  &:hover, &:active 
+    background-color: darken($bg, 10%)
+
+// -------------------------------------------------------------------
+
+// * Formule Responsive Text
+// ! Exsample: ($minSizePercent + ($maxSize - $minSize) * (100vw - $minWidthPx) / ($maxWidth - $minWidth))
+
+

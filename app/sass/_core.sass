@@ -1,0 +1,73 @@
+@import 'variables'
+@import 'mixins'
+
+*,
+*::after,
+*::before
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+
+body 
+  font-size: 1.6rem
+  position: relative
+  line-height: 1.3
+  //font-family: $primary-font
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+  background: url('../images/bg-body.jpg') repeat
+  background-attachment: fixed
+  margin: 0
+  -webkit-font-smoothing: subpixel-antialiased
+  user-select: none
+  overflow: auto // or scroll
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    display: none
+  scroll-behavior: smooth
+
+button, input
+	font: inherit
+
+button
+	cursor: pointer
+
+a
+	text-decoration: none
+	color: inherit
+
+ul
+	list-style: none
+	padding: 0
+	margin: 0
+
+h1, h2, h3, h4, h5, h6, p
+	padding: 0
+	margin: 0
+
+.visually-hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  border: 0
+  padding: 0
+  white-space: nowrap
+  clip-path: inset(0,0,0,0)
+  overflow: hidden
+
+.img-responsive
+  display: block
+  width: 100%
+  height: auto
+
+.container 
+	@include min-max(320px, 100%, 0)
+
+.wrap
+	@include min-max(320px, 1170px, 15px)
+
+
+
+
+
