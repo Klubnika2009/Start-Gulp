@@ -8,8 +8,8 @@ module.exports = () => {
         baseDir: $.path.build
       },
       notify: true, 
+      tunnel: 'sitename'  // Demonstration page: http://sitename.Loca.lt
       // online: true, // Work offline without internet connection
-      // tunnel: true  // tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
     });
 
     $.gulp.watch($.path.html.watch, $.gulp.series('html'));
