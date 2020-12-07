@@ -10,6 +10,7 @@ module.exports = () => {
       }))
       .pipe($.removeHtmlComments())
       .pipe($.gulp.dest($.path.html.build))
+      .pipe($.size())
       .on('end', $.browserSync.reload);
   });
 };

@@ -3,6 +3,7 @@
 global.$ = {
   gulp: require('gulp'),
   debug: require('gulp-debug'),
+  size: require('gulp-filesize'),
   // Html
   fileInclude: require('gulp-file-include'),
   beautify: require('gulp-beautify'),

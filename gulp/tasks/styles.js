@@ -15,7 +15,7 @@ module.exports = () => {
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.autoprefixer({
         cascade: false,
-        grid: true,
+        grid: false,
         overrideBrowserslist: 'last 10 versions'
       }))
       .pipe($.groupMediaCss())
@@ -27,6 +27,7 @@ module.exports = () => {
       }))
       .pipe($.sourcemaps.write('.'))
       .pipe($.gulp.dest($.path.styles.build))
+      .pipe($.size())
       .pipe($.browserSync.stream());
   });
 
@@ -42,7 +43,7 @@ module.exports = () => {
       .pipe($.sass({outputStyle: 'expanded'}))
       .pipe($.autoprefixer({
         cascade: false,
-        grid: true,
+        grid: false,
         overrideBrowserslist: 'last 10 versions'
       }))
       .pipe($.groupMediaCss())
@@ -54,6 +55,7 @@ module.exports = () => {
         suffix: '.min'
       }))
       .pipe($.gulp.dest($.path.styles.build))
+      .pipe($.size());
   });
 
 };

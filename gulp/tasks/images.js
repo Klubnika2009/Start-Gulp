@@ -31,6 +31,7 @@ module.exports = () => {
         })
       ])))
       .pipe($.gulp.dest($.path.images.build))
+      .pipe($.size())
       .on('end', $.browserSync.reload);
   });
 

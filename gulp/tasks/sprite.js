@@ -28,6 +28,7 @@ module.exports = () => {
         }
       }))
       .pipe($.gulp.dest($.path.sprite.build))
+      .pipe($.size())
       .on('end', $.browserSync.reload);
   });
 };

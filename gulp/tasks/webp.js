@@ -7,6 +7,7 @@ module.exports = () => {
         alphaQuality: 100
       })))
       .pipe($.gulp.dest($.path.webp.build))
+      .pipe($.size())
       .on('end', $.browserSync.reload);
   });
 };
