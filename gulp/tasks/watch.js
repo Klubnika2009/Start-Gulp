@@ -8,7 +8,7 @@ module.exports = () => {
         baseDir: $.path.build
       },
       notify: true, 
-      tunnel: 'sitename'  // Demonstration page: http://sitename.Loca.lt
+      // tunnel: 'sitename'  // Demonstration page: http://sitename.Loca.lt
       // online: true, // Work offline without internet connection
     });
 
